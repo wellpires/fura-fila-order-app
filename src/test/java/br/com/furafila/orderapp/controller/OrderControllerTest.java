@@ -33,7 +33,7 @@ import br.com.furafila.orderapp.dto.ApprovedOrderDTO;
 import br.com.furafila.orderapp.matcher.ZeroValue;
 import br.com.furafila.orderapp.response.ApprovedOrdersResponse;
 import br.com.furafila.orderapp.service.OrderService;
-import br.com.furafila.orderapp.util.ApprovedOrderDTODummyGenerator;
+import br.com.furafila.orderapp.util.ApprovedOrderDTODummyBuilder;
 import br.com.furafila.orderapp.util.ReplaceCamelCase;
 
 @ExtendWith(SpringExtension.class)
@@ -58,7 +58,7 @@ public class OrderControllerTest {
 
 		int itemsAmount = 10;
 		when(orderService.listApprovedOrders(anyLong()))
-				.thenReturn(new ApprovedOrderDTODummyGenerator().itemsAmount(itemsAmount).buildList());
+				.thenReturn(new ApprovedOrderDTODummyBuilder().itemsAmount(itemsAmount).buildList());
 
 		Long establishmentId = 10l;
 		String path = UriComponentsBuilder.fromPath(LIST_APPROVED_ORDERS).queryParam("establishmentId", establishmentId)

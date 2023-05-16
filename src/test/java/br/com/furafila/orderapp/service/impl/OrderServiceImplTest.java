@@ -23,7 +23,7 @@ import br.com.furafila.orderapp.dao.OrderDAO;
 import br.com.furafila.orderapp.dto.ApprovedOrderDTO;
 import br.com.furafila.orderapp.matcher.ZeroValue;
 import br.com.furafila.orderapp.service.OrderService;
-import br.com.furafila.orderapp.util.ApprovedOrderDTODummyGenerator;
+import br.com.furafila.orderapp.util.ApprovedOrderDTODummyBuilder;
 import br.com.furafila.orderapp.util.ReplaceCamelCase;
 
 @DisplayNameGeneration(ReplaceCamelCase.class)
@@ -40,7 +40,7 @@ public class OrderServiceImplTest {
 	public void shouldListApprovedOrders() {
 
 		int itemsAmount = 10;
-		List<ApprovedOrderDTO> approvedOrderDTOs = new ApprovedOrderDTODummyGenerator().itemsAmount(itemsAmount)
+		List<ApprovedOrderDTO> approvedOrderDTOs = new ApprovedOrderDTODummyBuilder().itemsAmount(itemsAmount)
 				.buildList();
 		when(orderDAO.listApprovedOrders(anyLong())).thenReturn(approvedOrderDTOs);
 

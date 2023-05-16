@@ -8,11 +8,11 @@ import org.apache.commons.lang3.RandomUtils;
 
 import br.com.furafila.orderapp.dto.ApprovedOrderDTO;
 
-public class ApprovedOrderDTODummyGenerator {
+public class ApprovedOrderDTODummyBuilder {
 
 	private int itemsAmount;
 
-	public ApprovedOrderDTODummyGenerator itemsAmount(int itemsAmount) {
+	public ApprovedOrderDTODummyBuilder itemsAmount(int itemsAmount) {
 		this.itemsAmount = itemsAmount;
 		return this;
 	}
